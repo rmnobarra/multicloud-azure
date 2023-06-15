@@ -1,6 +1,20 @@
 # Multicloud Azure
 
-Trabalho sobre Terraform na Azure para a disciplina Multicloud Architecture na faculdade Impacta
+Trabalho para o MBA em Arquitetura de Soluções sobre Terraform na Azure para a disciplina Multicloud Architecture na faculdade Impacta
+
+## Integrantes
+
+Nome: Leonardo Silva dos Santos
+RA: 2300465
+
+Nome: Julio Cesar de Sousa Gonzales
+RA: 2302051
+
+Nome: Fabio Júnior da Silva
+RA: 2301637
+
+Nome: Felipe Marcelo Albuquerque Sartori
+RA: 2300751
 
 ## Atividade
 
@@ -40,11 +54,26 @@ terraform output -raw tls_private_key > id_rsa && chmod 600 id_rsa
 ssh -i id_rsa azureuser@`terraform output -raw public_ip_address`
 ```
 
+Para validar manualmente se o nginx está em execução:
+
+```bash
+curl -I `terraform output -raw public_ip_address`
+```
+
 Caso o nginx não tenha sido inicializado ou instalado. O script é enviado para o path:
 
 ```bash
 /var/lib/waagent/custom-script/download/0/script.sh
 ```
+## Pré requisitos
+
+* Conta na azure
+* cli instalada e autenticada
+
+Para saber mais: 
+
+https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
+https://learn.microsoft.com/pt-br/cli/azure/authenticate-azure-cli
 
 ## Como usar?
 
